@@ -3,6 +3,7 @@ package com.itheima.web.request;
 import com.itheima.mapper.UserMapper;
 import com.itheima.pojo.User;
 //import com.itheima.util.SqlSessionFactoryUtils;
+import com.itheima.web.response.SqlSessionFactoryUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -29,9 +30,10 @@ public class RegisterServlet extends HttpServlet {
 
         //2. 调用mapper 根据用户名查询用户对象
         //2.1 获取SqlSessionFactory对象
-        String resource = "mybatis-config.xml";
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+//        String resource = "mybatis-config.xml";
+//        InputStream inputStream = Resources.getResourceAsStream(resource);
+//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtils.getSqlSessionFactory();
         //2.2 获取SqlSession对象
         SqlSession sqlSession = sqlSessionFactory.openSession();
         //2.3 获取Mapper
